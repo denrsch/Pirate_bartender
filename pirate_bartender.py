@@ -1,3 +1,5 @@
+import random
+
 questions = {
     "fruity": "are ye a fruity drink lubber?",
     "smokey": "Or Do ye prefer something smokey, like mezcal or whisky?",
@@ -21,24 +23,29 @@ citrus = raw_input(questions['citrus'] + ' ').lower().strip() in ['y', 'yes']
 print "So, %r fruity, %r smokey, %r salty and %r citrus? Is that correct?" % (fruity, smokey, salty, citrus)
 
 def customer_drink_order():
-  for True in fruity:
-    print "we'll add a splash of orange juice"
+  drink_ingredients = [] 
+  if fruity == True:
+    drink_ingredients.append(ingredients['fruity'][0])
   else:
-    print "ok, we'll skip that."
+    print "ok, we'll skip fruity."
     
   if smokey == True:
-    print "I'll add a shot of mezcal and shot of whiskey."
+    drink_ingredients.append(ingredients['smokey'][0])
   else:
-    print "ok, we'll skip that."
+    print "ok, we'll skip smokey."
     
   if salty == True:
-    print "I'll add some lemonade and put salt around the rim."
+    drink_ingredients.append(random.choice(ingredients['salty']))
   else:
-    print "ok, we'll skip that."
+    print "ok, we'll skip salty."
     
   if citrus == True:
-    print "I'll throw in a slice of lime."
+    drink_ingredients.append(random.choice(ingredients['citrus']))
   else:
-    print "ok, we'll skip that."
+    print "ok, we'll skip citrus."
+  print "Drink ingredients are "
+  for ingredient in drink_ingredients:
+    print ingredient 
 
+customer_drink_order() 
 
