@@ -29,7 +29,14 @@ while True:
   print "hello! Welcome to me Bar! My name is Captain Blackbeard, and I will be your server!"
   name = raw_input("What is yer name? ")
   print "Welcome %s! We are glad to have ye today. Let's see what I can get ye." % (name)
-  if 1: # preferences.has_key...: # Complete
+  for keys in questions:
+    answers = str(raw_input(questions.get(keys)))
+    if answers == "yes" or answers == "y":
+      answers == true
+    else:
+      answers == false
+    preferences.update({keys : answers})
+    
     fruity = raw_input(questions['fruity'] + ' ').lower().strip() in ['y', 'yes']
     smokey = raw_input(questions['smokey'] + ' ').lower().strip() in ['y', 'yes']
     salty = raw_input(questions['salty'] + ' ').lower().strip() in ['y', 'yes']
